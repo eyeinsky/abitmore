@@ -1,0 +1,40 @@
+cabal-version:      3.4
+name:               abitmore
+version:            0.1.0.0
+-- synopsis:
+-- description:
+license:            BSD-3-Clause
+license-file:       LICENSE
+author:             Markus Läll
+maintainer:         markus.l2ll@gmail.com
+category:           Data
+build-type:         Simple
+
+
+common lang
+    ghc-options: -Wall
+    default-language: GHC2021
+    default-extensions:
+        DerivingStrategies
+        LambdaCase
+        NoImplicitPrelude
+        DerivingVia
+        MultiWayIf
+        DataKinds
+        TypeFamilies
+        AllowAmbiguousTypes
+
+library
+    import:           lang
+    exposed-modules:  Data.Bit
+    build-depends:    base ^>=4.18.2.1
+    hs-source-dirs:   src
+
+test-suite bite-test
+    import:           lang
+    type:             exitcode-stdio-1.0
+    hs-source-dirs:   test
+    main-is:          Main.hs
+    build-depends:
+        base ^>=4.18.2.1,
+        bite
